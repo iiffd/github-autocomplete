@@ -3,6 +3,7 @@ import SuggestionsList from './SuggestionsList';
 import './Autocomplete.css';
 
 const Autocomplete = () => {
+  const [results, setResults] = useState([]);
   const [suggestionsList, setSuggestionsList] = useState([]);
   const [activeSuggestion, setActiveSuggestion] = useState(0);
   const [filteredSuggestions, setfilteredSuggestions] = useState([]);
@@ -13,6 +14,7 @@ const Autocomplete = () => {
       .then(res => res.json())
       .then(
         (result) => {
+          setResults(result);
           setSuggestionsList(result.map((item, i) => [item.title, i]));
         },
         (error) => {
@@ -31,6 +33,7 @@ const Autocomplete = () => {
   const onKeyDown = e => {
     console.log(filteredSuggestions);
     console.log(userInput);
+    console.log(suggestionsList);
 
   }
 
@@ -44,7 +47,7 @@ const Autocomplete = () => {
         value={userInput}
       />
       <SuggestionsList
-        suggestionsList={suggestionsList}
+        results={results}
         userInput={userInput}
         filteredSuggestions={filteredSuggestions}
       />
