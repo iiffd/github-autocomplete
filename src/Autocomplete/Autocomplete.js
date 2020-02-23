@@ -13,8 +13,7 @@ const Autocomplete = () => {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result.map(item => item.title));
-          setSuggestionsList(result.map(item => item.title));
+          setSuggestionsList(result.map((item, i) => [item.title, i]));
         },
         (error) => {
           console.log(error);
@@ -24,7 +23,7 @@ const Autocomplete = () => {
 
   const onChange = (e) => {
     const filteredSuggestions = suggestionsList.filter(
-      (suggestion) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
+      ([suggestion, i]) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
     setUserInput(e.currentTarget.value);
     setfilteredSuggestions(filteredSuggestions);
   }
@@ -45,6 +44,7 @@ const Autocomplete = () => {
         value={userInput}
       />
       <SuggestionsList
+        suggestionsList={suggestionsList}
         userInput={userInput}
         filteredSuggestions={filteredSuggestions}
       />

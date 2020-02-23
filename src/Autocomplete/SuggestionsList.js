@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './SuggestionsList.css';
 
-const SuggestionsList = ({ showSuggestions, userInput, filteredSuggestions }) => {
+const SuggestionsList = ({ suggestionsList, userInput, filteredSuggestions }) => {
 
   if (userInput && filteredSuggestions.length) {
     return (
       <ul className="suggestions">
-        {filteredSuggestions.map((suggestion, i) => {
-          
+        {filteredSuggestions.map(([suggestion, suggestionIndex], i) => {
           return (
             <li key={i}>
               {suggestion}
