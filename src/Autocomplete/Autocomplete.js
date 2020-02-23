@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import SuggestionsList from './SuggestionsList';
 import './Autocomplete.css';
 
+// Keycodes
+const ENTER = 13;
+const UP = 38;
+const DOWN = 40;
+
 const Autocomplete = () => {
   const [results, setResults] = useState([]);
   const [suggestionsList, setSuggestionsList] = useState([]);
-  const [activeSuggestion, setActiveSuggestion] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [filteredSuggestions, setfilteredSuggestions] = useState([]);
   const [userInput, setUserInput] = useState('');
 
@@ -35,6 +40,18 @@ const Autocomplete = () => {
     console.log(userInput);
     console.log(suggestionsList);
 
+    if (e.keyCode === ENTER) {
+      setActiveIndex(0);
+      setUserInput(filteredSuggestions[activeIndex][0])
+    } else if (e.keyCode === UP) {
+      if (activeIndex === 0) return;
+
+      setActiveIndex(activeIndex - 1);
+    } else if (e.keyCode === DOWN) {
+      if (activeIndex - 1 === filteredSuggestions.length) return;
+
+      setActiveIndex(activeIndex + 1);
+    }
   }
 
   return (
@@ -50,6 +67,7 @@ const Autocomplete = () => {
         results={results}
         userInput={userInput}
         filteredSuggestions={filteredSuggestions}
+        activeIndex={activeIndex}
       />
     </div>
   );
