@@ -38,7 +38,7 @@ const Autocomplete = () => {
   }
 
   return (
-    <>
+    <div className="autocomplete-wrapper">
       <input
         className="autocomplete-input"
         type="text"
@@ -51,7 +51,7 @@ const Autocomplete = () => {
         userInput={userInput}
         filteredSuggestions={filteredSuggestions}
       />
-    </>
+    </div>
   );
 }
 

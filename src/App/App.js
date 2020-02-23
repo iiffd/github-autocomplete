@@ -4,7 +4,7 @@ import Autocomplete from '../Autocomplete';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <h1>Search Github React Issues</h1>
       <Autocomplete />
     </div>

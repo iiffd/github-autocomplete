@@ -1,4 +1,25 @@
+.suggestions {
+  padding: 0;
+}
+
 li {
   text-align: left;
   display: block;
+  padding: 10px 0;
+  width: 100%;
+}
+
+a {
+  padding: 10px;
+  background-color: #39CCCC;
+  color: white;
+  display: inline-block;
+  width: 100%;
+  border-radius: 25px;
+  text-decoration: none;
+
+}
+
+a:hover {
+  text-decoration: underline;
 }
