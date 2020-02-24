@@ -9,7 +9,7 @@ li {
   width: 100%;
 }
 
-a {
+button {
   padding: 10px 15px;
   background-color: #39CCCC;
   color: white;
@@ -17,10 +17,12 @@ a {
   width: 100%;
   border-radius: 25px;
   text-decoration: none;
-
+  text-align: left;
+  font-size: 14px;
+  font-family: monospace;
 }
 
-a:hover {
+button:hover {
   text-decoration: underline;
 }
 

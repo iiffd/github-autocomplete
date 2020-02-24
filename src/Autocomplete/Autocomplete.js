@@ -30,27 +30,27 @@ const Autocomplete = () => {
 
   const onChange = (e) => {
     const filteredSuggestions = suggestionsList.filter(
-      ([suggestion, i]) => suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1);
+      ([suggestion, i]) => suggestion.toLowerCase().indexOf(e.currentTarget.value.toLowerCase()) > -1);
     setUserInput(e.currentTarget.value);
     setfilteredSuggestions(filteredSuggestions);
   }
-  
-  const onKeyDown = e => {
-    console.log(results);
 
-    if (e.keyCode === ENTER) {
-      setActiveIndex(0);
-      setUserInput(filteredSuggestions[activeIndex][0])
+  const onKeyDown = e => {
+    if (e.keyCode === ENTER && activeIndex !== 0) {
+      const resultsIndex = filteredSuggestions[activeIndex - 1][1]
+      onClick(results[resultsIndex].html_url);
     } else if (e.keyCode === UP) {
       if (activeIndex === 0) return;
-
       setActiveIndex(activeIndex - 1);
     } else if (e.keyCode === DOWN) {
-      if (activeIndex - 1 === filteredSuggestions.length) return;
-
+      if (activeIndex === filteredSuggestions.length) return;
       setActiveIndex(activeIndex + 1);
     }
   }
+
+  const onClick = url => {
+    window.open(url, '_blank');
+  };
 
   return (
     <div className="autocomplete-wrapper">
@@ -66,6 +66,7 @@ const Autocomplete = () => {
         userInput={userInput}
         filteredSuggestions={filteredSuggestions}
         activeIndex={activeIndex}
+        onClick={onClick}
       />
     </div>
   );

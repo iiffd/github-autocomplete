@@ -1,9 +1,10 @@
 .autocomplete-input {
-  width: 700px;
+  width: 670px;
   background-color: #39CCCC;
   border: none;
   color: white;
   padding: 10px 15px;
   font-size: 36px;
   border-radius: 25px;
+  font-family: monospace;
 }
