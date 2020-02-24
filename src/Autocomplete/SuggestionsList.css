@@ -25,5 +25,13 @@ a:hover {
 }
 
 .active {
-  background-color: lightblue;
+  background-color: #5ed5fc;
+}
+
+.label-status {
+  padding: 5px 10px;
+  margin: 5px 10px;
+  border-radius: 25px;
+  display: inline-block;
+  color: #414141;
 }

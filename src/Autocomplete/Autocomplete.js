@@ -36,9 +36,7 @@ const Autocomplete = () => {
   }
   
   const onKeyDown = e => {
-    console.log(filteredSuggestions);
-    console.log(userInput);
-    console.log(suggestionsList);
+    console.log(results);
 
     if (e.keyCode === ENTER) {
       setActiveIndex(0);
