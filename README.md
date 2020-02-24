@@ -18,3 +18,11 @@ Currently only have snapshot tests.
 ## TODOs:
 
 Write more tests for Autcomplete component such as testing the correct number of links appear when filteredSuggestions is a certain length, etc.
+
+## Features:
+
+- Queries github api for issues in React repo
+- Filters those issues based on user input
+- Each list item shows title of issue and labels
+- Can navigate autocomplete list through keyboard shortcuts
+- Pressing enter or clicking on link will open new page where issue resides
